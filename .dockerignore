@@ -1,0 +1,14 @@
+node_modules
+data
+.env
+.env.*
+!.env.example
+.git
+.gitignore
+*.log
+Dockerfile
+docker-compose.yml
+.dockerignore
+README.md
+biome.json
+drizzle.config.ts

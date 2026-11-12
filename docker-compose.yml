@@ -1,0 +1,22 @@
+services:
+  bot:
+    build: .
+    image: discord-ai-chatbot:latest
+    container_name: discord-ai-chatbot
+    restart: unless-stopped
+    init: true
+    env_file: .env
+    environment:
+      DATABASE_PATH: /app/data/bot.db
+    volumes:
+      - bot-data:/app/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  bot-data:
