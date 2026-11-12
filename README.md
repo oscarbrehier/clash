@@ -4,7 +4,7 @@ A private, ChatGPT/Claude-style AI chatbot for your own Discord server. Every fo
 
 - **Many ways to start a chat:** a post in the chat forum, a message in the ask channel, `/chat new`, or mentioning the bot in any channel
 - **Streaming answers:** messages are edited about once per 1.2 s and split safely at 2,000 characters, without breaking code blocks
-- **Multiple providers:** Anthropic, OpenAI, Google, OpenRouter and local Ollama, enabled by whichever keys you set
+- **Multiple providers:** Anthropic, OpenAI, Google, Mistral, OpenRouter and local Ollama, enabled by whichever keys you set
 - **Per-chat settings:** `/model`, `/persona`, `/settings`, plus forum tags that show each chat's model
 - **Buttons:** ⏹️ Stop, 🔄 Regenerate and 🍴 Fork on every reply
 - **Attachments:** images go to vision models; text, code and PDF files are added as context
@@ -62,6 +62,7 @@ Copy `.env.example` to `.env` and fill it in. Everything is validated at startup
 | `ANTHROPIC_API_KEY`            |          | Enables Anthropic models                                                             |
 | `OPENAI_API_KEY`               |          | Enables OpenAI models                                                                |
 | `GOOGLE_GENERATIVE_AI_API_KEY` |          | Enables Google Gemini models                                                         |
+| `MISTRAL_API_KEY`              |          | Enables Mistral models (Codestral, Mistral Large, Mistral Small)                     |
 | `OPENROUTER_API_KEY`           |          | Enables OpenRouter models                                                            |
 | `OLLAMA_BASE_URL`              |          | Enables local Ollama, for example `http://localhost:11434`                           |
 | `DATABASE_PATH`                |          | SQLite file, default `./data/bot.db`                                                 |

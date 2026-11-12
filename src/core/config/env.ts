@@ -30,6 +30,7 @@ const envSchema = z.object({
   ANTHROPIC_API_KEY: optionalText,
   OPENAI_API_KEY: optionalText,
   GOOGLE_GENERATIVE_AI_API_KEY: optionalText,
+  MISTRAL_API_KEY: optionalText,
   OPENROUTER_API_KEY: optionalText,
   OLLAMA_BASE_URL: optionalUrl,
 

@@ -1,6 +1,13 @@
 import { z } from "zod"
 
-export const providerIds = ["anthropic", "openai", "google", "openrouter", "ollama"] as const
+export const providerIds = [
+  "anthropic",
+  "openai",
+  "google",
+  "mistral",
+  "openrouter",
+  "ollama",
+] as const
 
 export type ProviderId = (typeof providerIds)[number]
 

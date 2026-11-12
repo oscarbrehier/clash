@@ -5,6 +5,7 @@ const secretKeys = [
   "ANTHROPIC_API_KEY",
   "OPENAI_API_KEY",
   "GOOGLE_GENERATIVE_AI_API_KEY",
+  "MISTRAL_API_KEY",
   "OPENROUTER_API_KEY",
 ] as const satisfies readonly (keyof Env)[]
 
