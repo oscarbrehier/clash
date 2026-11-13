@@ -9,6 +9,7 @@ import {
 export interface SessionSeed {
   ownerId: string
   modelId?: string
+  personaId?: string
 }
 
 export async function ensureSession(
@@ -27,6 +28,7 @@ export async function ensureSession(
     guildId: channel.guildId,
     ownerId: seed.ownerId,
     modelId: seed.modelId ?? resolveGuildDefaultModel(context, channel.guildId).id,
+    personaId: seed.personaId,
   })
 
   await context.hooks.emitSessionStarted({

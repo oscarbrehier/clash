@@ -10,12 +10,14 @@ export interface ChatStart {
   prompt: string | undefined
   message: Message<true> | undefined
   modelId?: string
+  personaId?: string
 }
 
 export async function beginChat(context: CoreContext, start: ChatStart) {
   const thread = await ensureSession(context, start.channel, {
     ownerId: start.ownerId,
     modelId: start.modelId,
+    personaId: start.personaId,
   })
 
   if (!start.prompt && !start.message) {

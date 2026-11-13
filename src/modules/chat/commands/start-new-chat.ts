@@ -1,5 +1,6 @@
 import { type ChatInputCommandInteraction, MessageFlags } from "discord.js"
 import type { CoreContext } from "../../../core/context.ts"
+import { findPersona } from "../../personas/persona-catalog.ts"
 import { starterMessage } from "../discord/starter-message.ts"
 import { threadNameFrom } from "../discord/thread-name.ts"
 import { beginChat } from "../sessions/begin-chat.ts"
@@ -14,12 +15,15 @@ export async function startNewChat(
 ) {
   const prompt = interaction.options.getString("prompt")?.trim() || undefined
   const modelId = interaction.options.getString("model") ?? undefined
+  const personaId = interaction.options.getString("persona") ?? undefined
 
   if (modelId && !context.models.find(modelId)) {
-    await interaction.reply({
-      content: `Unknown model \`${modelId}\`.`,
-      flags: MessageFlags.Ephemeral,
-    })
+    await replyUnknown(interaction, `Unknown model \`${modelId}\`.`)
+    return
+  }
+
+  if (personaId && !findPersona(personaId)) {
+    await replyUnknown(interaction, `Unknown persona \`${personaId}\`. See \`/persona list\`.`)
     return
   }
 
@@ -43,5 +47,10 @@ export async function startNewChat(
     prompt,
     message: undefined,
     modelId,
+    personaId,
   })
+}
+
+async function replyUnknown(interaction: ChatInputCommandInteraction<"cached">, content: string) {
+  await interaction.reply({ content, flags: MessageFlags.Ephemeral })
 }

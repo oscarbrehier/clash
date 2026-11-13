@@ -117,12 +117,12 @@ docker compose logs -f bot
 
 ### Starting a chat
 
-| How                                 | What happens                                                                                                                                           |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| New post in the chat forum          | The bot answers in the post.                                                                                                                           |
-| Message in the ask channel          | A forum post is created with your message, plus a reply with an **Open chat** button. Without a chat forum, a thread opens under your message instead. |
-| `/chat new [prompt] [model]`        | Creates a post (or a thread in the current channel).                                                                                                   |
-| `@Bot your question` in any channel | Starts a thread from your message.                                                                                                                     |
+| How                                    | What happens                                                                                                                                           |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| New post in the chat forum             | The bot answers in the post.                                                                                                                           |
+| Message in the ask channel             | A forum post is created with your message, plus a reply with an **Open chat** button. Without a chat forum, a thread opens under your message instead. |
+| `/chat new [prompt] [model] [persona]` | Creates a post (or a thread in the current channel), optionally with a persona from the start.                                                         |
+| `@Bot your question` in any channel    | Starts a thread from your message.                                                                                                                     |
 
 After the first answer, the title model renames the chat (at most twice, because Discord allows only two renames per 10 minutes). Messages sent while the bot is still answering are answered together right afterwards.
 
